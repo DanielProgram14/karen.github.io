@@ -4,26 +4,64 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Para Karen 💖</title>
-  <audio id="musica" loop>
+
+  <!-- Ventana emergente -->
+<div id="popup" style="
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(41, 41, 41, 5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+">
+  <div style="
+    background: rgb(27, 26, 26);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 300px;
+    font-size: 1.2rem;
+    box-shadow: 0 0 20px rgba(237, 237, 237, 0.5);
+  ">
+    <p>🎧¿Quieres escuchar una canción especial mientras ves esto?</p>
+    <button onclick="iniciarMusica()" style="
+      background: #e03e74;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+    ">Sí, claro 💖</button>
+  </div>
+</div>
+
+<!-- Audio oculto -->
+<audio id="musica" loop>
   <source src="musica.mp3" type="audio/mpeg">
 </audio>
 
+<!-- Script para iniciar música y cerrar popup -->
 <script>
-  document.addEventListener('click', () => {
+  function iniciarMusica() {
+    const popup = document.getElementById('popup');
+    popup.style.display = 'none';
     const musica = document.getElementById('musica');
-    if (musica.paused) {
-      musica.play();
-    }
-  }, { once: true });
+    musica.play();
+  }
 </script>
+
+
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-    
     body {
+      margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
       overflow-x: hidden;
@@ -85,48 +123,56 @@
     }
   }
 
-    .heart {
-      position: fixed;
-      width: 20px;
-      height: 20px;
-      background: red;
-      transform: rotate(45deg);
-      animation: float 5s infinite ease-in;
-      z-index: 0;
-    }
+  .heart {
+  position: fixed;
+  bottom: -40px;
+  width: 30px;
+  height: 30px;
+  background: red;
+  transform: rotate(45deg);
+  animation: float 12s infinite ease-in;
+  opacity: 0.8;
+  z-index: 0;
+}
 
-    .heart::before,
-    .heart::after {
-      content: "";
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: red;
-      border-radius: 50%;
-    }
 
-    .heart::before {
-      top: -10px;
-      left: 0;
-    }
 
-    .heart::after {
-      left: -10px;
-      top: 0;
-    }
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: red;
+  border-radius: 50%;
+}
 
-    @keyframes float {
-      0% {
-        bottom: -20px;
-        opacity: 1;
-        transform: translateX(0) rotate(45deg);
-      }
-      100% {
-        bottom: 100%;
-        opacity: 0;
-        transform: translateX(50px) rotate(45deg);
-      }
-    }
+.heart::before {
+  top: -15px;
+  left: 0;
+}
+
+.heart::after {
+  left: -15px;
+  top: 0;
+}
+
+
+@keyframes float {
+  0% {
+    bottom: -40px;
+    opacity: 1;
+    transform: translateX(0) rotate(45deg);
+  }
+  100% {
+    bottom: 120vh;
+    opacity: 0;
+    transform: translateX(50px) rotate(45deg);
+  }
+
+}
+
+
   </style>
 </head>
 <body>
@@ -169,14 +215,26 @@
 
 <!-- Corazones flotantes -->
 <script>
-  for (let i = 0; i < 30; i++) {
-    let heart = document.createElement("div");
+  for (let i = 0; i < 60; i++) {
+    const heart = document.createElement("div");
     heart.className = "heart";
+
+    // Posición horizontal aleatoria
     heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+    // Tamaño aleatorio
+    const size = 20 + Math.random() * 20; // entre 20px y 40px
+    heart.style.width = size + "px";
+    heart.style.height = size + "px";
+    heart.style.zIndex = 0;
+
+    // Duración aleatoria
+    heart.style.animationDuration = (6 + Math.random() * 6) + "s";
+
     document.body.appendChild(heart);
   }
 </script>
+
 
 </body>
 </html>
