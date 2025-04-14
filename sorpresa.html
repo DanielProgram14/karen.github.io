@@ -4,9 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Para Karen 💖</title>
-  <audio controls loop>
-  <source src="MusicFond.mp3" type="audio/mpeg">
-  </audio>
+  <audio id="musica" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  document.addEventListener('click', () => {
+    const musica = document.getElementById('musica');
+    if (musica.paused) {
+      musica.play();
+    }
+  }, { once: true });
+</script>
   <style>
     * {
       box-sizing: border-box;
