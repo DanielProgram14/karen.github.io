@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Para Karen 💖</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
+      overflow-x: hidden;
+      color: #fff;
+    }
+
+    .main-container {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 40px;
+      font-size: 69px;
+      
+    }
+
+    .message {
+      font-size: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      background-color: rgba(0,0,0,0.3);
+      padding: 20px;
+      border-radius: 20px;
+    }
+
+    .fotos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas fijas */
+    gap: 20px;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 50px;
+  }
+
+  .fotos img {
+    width: 120%;
+    height: 500px; /* Altura fija */
+    object-fit: cover; /* Recorta sin deformar */
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+  }
+
+  .fotos img:hover {
+    transform: scale(1.05);
+  }
+
+  /* Versión responsive para móviles */
+  @media (max-width: 768px) {
+    .fotos {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .fotos {
+      grid-template-columns: 1fr;
+    }
+  }
+
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 5s infinite ease-in;
+      z-index: 0;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        bottom: -20px;
+        opacity: 1;
+        transform: translateX(0) rotate(45deg);
+      }
+      100% {
+        bottom: 100%;
+        opacity: 0;
+        transform: translateX(50px) rotate(45deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="main-container">
+  <h1> 💗 Karen Stanford 💗</h1>
+  <div class="message">
+    No sé cómo demostrarte todo lo que siento por ti. Solo necesito que confíes en mí y creas que, 
+    desde que llegaste, has mejorado mis días. Con nuestras locuras momentáneas,
+     has logrado hacerme sonreír.
+     <br/> <br/>
+    Y de verdad te quiero, quiero quedarme contigo y no por inercia o porque 
+    hayas creado una necesidad mía hacia ti, quiero que te quedes porque me gusta tu 
+    compañía, porque tú sonrisa me hace feliz, porque puedo ser yo mismo a tu lado 
+    sin importar nada, simplemente me haces
+    bien.
+    <br/>
+    Yo no pedí sentir esto por ti, te fuiste metiendo poco a poco y ahora no se que hacer con eso, 
+    con esta necesidad de saber de ti, de pensarte, de sentirte, de amarte..
+     <br /><br />
+     Enamórate de mí, no te prometo días perfectos, ni la eternidad. Te voy a hacer enojar, vas a querer
+     matarme de vez en cuando, pero te aseguro que te voy a amar y te voy a enamorar cada día con mis 
+     incontables defectos, cursilerías y locuras momentáneas.
+     <br/> <br/>
+    Quiero compartir muchos momentos contigo... 
+    <br/> Karen Pamela Valencia Stanford jsjsj ¿Quieres ser mi novia? 💕💖
+  </div>
+  <div class="fotos">
+    <img src="img1.jpg" alt="Foto juntos 1">
+    <img src="img2.jpg" alt="Foto juntos 2">
+    <img src="img3.jpg" alt="Foto juntos 3">
+    <img src="img4.jpg" alt="Foto juntos 4">
+    <img src="img5.jpg" alt="Foto juntos 5">
+    <img src="img6.jpg" alt="Foto juntos 6">
+    <img src="img7.jpg" alt="Foto juntos 7">
+    <img src="img8.jpg" alt="Foto juntos 8">
+    <img src="img9.jpg" alt="Foto juntos 9">
+  </div>
+</div>
+
+<!-- Corazones flotantes -->
+<script>
+  for (let i = 0; i < 30; i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+    document.body.appendChild(heart);
+  }
+</script>
+
+</body>
+</html>
+
